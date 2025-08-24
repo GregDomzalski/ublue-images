@@ -25,9 +25,16 @@ jobs:
       max-parallel: 4
       matrix:
         recipe:
-          - recipe-*.yml
+          - recipe-k.yml
+          - recipe-kb.yml
+          - recipe-kbn.yml
+          - recipe-kd.yml
+          - recipe-kdb.yml
+          - recipe-kdbn.yml
+          - recipe-kdn.yml
+          - recipe-kn.yml
     steps:
-      - name: Build Custom Image
+      - name: Build ${{ matrix.recipe }} image
         uses: blue-build/github-action@v1.8
         with:
           recipe: ${{ matrix.recipe }}
