@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: gregos-kdb
+description: Greg's personalized KDE-based workstation environment.
+
+base-image: ghcr.io/ublue-os/aurora-dx
+image-version: stable
+
+modules:
+  - from-file: common.yml
