@@ -4,7 +4,7 @@
 name: gregos-desktop-kde
 description: Greg's personalized KDE-based desktop environment image.
 
-base-image: ghcr.io/ublue-os/aurora-dx
+base-image: ghcr.io/ublue-os/aurora-dx-hwe
 image-version: stable
 
 # module configuration, executed in order
@@ -18,6 +18,23 @@ modules:
   - type: bling
     install:
       - 1password
+
+  - type: systemd
+    system:
+      enabled:
+        - sshd.service
+
+  - type: default-flatpaks
+    configurations:
+      - scope: user
+        install:
+          - com.discordapp.Discord
+          - com.slack.Slack
+          - com.google.Chrome
+          - io.gitlab.librewolf-community
+          - md.obsidian.Obsidian
+          - org.signal.Signal
+          - us.zoom.Zoom
 
   - type: fonts
     fonts:
@@ -42,4 +59,3 @@ modules:
         - Open Sans
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
-
