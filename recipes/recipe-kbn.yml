@@ -5,7 +5,7 @@ name: gregos-kbn
 description: Greg's personalized KDE-based desktop environment using the Bazzite kernel and Nvidia drivers.
 
 base-image: ghcr.io/ublue-os/aurora-hwe-nvidia
-image-version: stable
+image-version: latest
 
 modules:
   - from-file: common.yml

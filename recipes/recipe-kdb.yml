@@ -5,7 +5,7 @@ name: gregos-kdb
 description: Greg's personalized KDE-based workstation environment using the Bazzite kernel.
 
 base-image: ghcr.io/ublue-os/aurora-dx-hwe
-image-version: stable
+image-version: latest
 
 modules:
   - from-file: common.yml
