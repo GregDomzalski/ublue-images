@@ -2,6 +2,29 @@
 
 Custom distro images for myself based on the Universal Blue projects and other container based Linux distros. Not meant for public consumption!
 
+## Goals
+
+Image with a lot of system-wide settings and packages installed, and a quick deploy of users supported in some way:
+
+- Apps + tools
+  - [x] 1Password
+- Justfiles?
+  - [ ] Install Ansible and perform an Ansible-Pull for the current machine
+  - [ ] Install additional Graphics software (Gimp, Krita, Penpot, draw.io, WireframeSketcher, Inkscape, Synfig Studio)
+- Configuration
+  - [ ] ZSH as default shell
+  - [x] SSHD configuration
+  - [ ] Minimal SSH config to use Ansible-Pull
+  - [ ] Default KDE app configurations
+- Multiple image flavors
+  - [ ] Aurora-DX
+  - [x] Aurora-DX-HWE
+  - [ ] uCore / Fedora Atomic Core
+- Distroboxes?
+  - [ ] Android tooling
+  - [ ] Ansible tooling
+  - [ ] Raspberry Pi imager and tooling
+
 ## Installation
 
 > [!WARNING]
