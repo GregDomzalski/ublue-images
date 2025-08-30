@@ -1,0 +1,7 @@
+[Added Associations]
+x-scheme-handler/http=io.gitlab.librewolf-community.desktop;
+x-scheme-handler/https=io.gitlab.librewolf-community.desktop;
+
+[Default Applications]
+x-scheme-handler/http=io.gitlab.librewolf-community.desktop;
+x-scheme-handler/https=io.gitlab.librewolf-community.desktop;
