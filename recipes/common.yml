@@ -25,6 +25,26 @@ modules:
           - md.obsidian.Obsidian
           - org.signal.Signal
           - us.zoom.Zoom
+          # Common flatpaks
+          - org.kde.kcalc
+          - org.kde.gwenview
+          - org.kde.kontact
+          - org.kde.okular
+          - org.kde.kweather
+          - org.kde.kclock
+          - org.kde.haruna
+          - com.github.tchx84.Flatseal
+          - io.github.flattool.Warehouse
+          - org.fedoraproject.MediaWriter
+          - io.missioncenter.MissionCenter
+          - io.github.pwr_solaar.solaar
+          - org.gustavoperedo.FontDownloader
+          - org.kde.skanpage
+          # DX flatpaks
+          - io.podman_desktop.PodmanDesktop
+          - io.github.getnf.embellish
+          - me.iepure.devtoolbox
+          - sh.loft.devpod
 
   - type: fonts
     fonts:
