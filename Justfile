@@ -25,17 +25,29 @@ fix:
 
 # Build ISO
 [group('ISO')]
-build-iso:
+build-iso flavor="kdbn" version="latest":
+    #!/usr/bin/env bash
     mkdir -p ./build_out
-    sudo bluebuild generate-iso --iso-name ./build_out/gregos-kde.iso image ghcr.io/gregdomzalski/gregos-desktop-kde:latest
+    sudo bluebuild generate-iso --iso-name "./build_out/gregos-{{ flavor }}.iso" image "ghcr.io/gregdomzalski/gregos-{{ flavor }}:{{ version }}"
 
 [group('ISO')]
-build-kickstart:
-    mkdir -p ./iso_contents
+build-kickstart hostname config flavor="kdbn" version="latest":
+    #!/usr/bin/env bash
+    set -euo pipefail
     mkdir -p ./build_out
-    cp ./kickstart/greg-vm.ks ./iso_contents/ks.cfg
-    xorriso -as mkisofs -V "OEMDRV" -J -r -o ./build_out/kickstart.iso ./iso_contents
-    rm -rf ./iso_contents
+    TEMP_DIR=$(mktemp -d)
+
+    function cleanup {
+        rm -rf "$TEMP_DIR"
+    }
+
+    trap cleanup EXIT
+    cp "./kickstart/{{ config }}.ks" "$TEMP_DIR/ks.cfg"
+    sed -i 's/KS_OS_IMAGE_NAME/gregos-{{ flavor }}/g' "$TEMP_DIR/ks.cfg"
+    sed -i 's/KS_OS_IMAGE_TAG/{{ version }}/g' "$TEMP_DIR/ks.cfg"
+    sed -i 's/KS_HOSTNAME/{{ hostname }}/g' "$TEMP_DIR/ks.cfg"
+    cat "$TEMP_DIR/ks.cfg"
+    xorriso -as mkisofs -V "OEMDRV" -J -r -o ./build_out/kickstart.iso "$TEMP_DIR"
 
 # Utils
 
